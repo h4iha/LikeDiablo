@@ -5,9 +5,11 @@ using UnityEngine.AI;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("Animation Set Name")]
-    public string idle = "Idle";
-    public string meleeAttack = "MeleeAttack";
-    public string walking = "Walking";
-    public string death = "Death";
+    public static GameManager instance;
+    public void Awake()
+    {
+        if (instance == null)
+            instance = this;
+    }
+
 }

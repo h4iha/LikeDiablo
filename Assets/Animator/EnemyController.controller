@@ -20,8 +20,8 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 9a5efa414856b9d41928c3fbcc622254, type: 3}
-  m_Tag: 
+  m_Motion: {fileID: -203655887218126122, guid: 9d94c27d0d8fe1c428123b8500d0b012, type: 3}
+  m_Tag: Enemy
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -47,7 +47,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: -203655887218126122, guid: 88324f0b15840cf40b2517ba8d78be78, type: 3}
-  m_Tag: 
+  m_Tag: Enemy
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -59,7 +59,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MeleeAttack
+  m_Name: Attack
   m_Speed: 3
   m_CycleOffset: 0
   m_Transitions:
@@ -75,7 +75,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: -203655887218126122, guid: bccf4df54b832ab4787f74b21f6ccf05, type: 3}
-  m_Tag: 
+  m_Tag: Enemy
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -94,13 +94,13 @@ AnimatorStateMachine:
     m_Position: {x: 240, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3297892044604607914}
-    m_Position: {x: 240, y: 180, z: 0}
+    m_Position: {x: 240, y: 170, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2522355178737089018}
-    m_Position: {x: 480, y: 110, z: 0}
+    m_Position: {x: 520, y: 100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 902066052615712276}
-    m_Position: {x: 240, y: 320, z: 0}
+    m_Position: {x: 240, y: 230, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -108,7 +108,7 @@ AnimatorStateMachine:
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 40, y: 20, z: 0}
   m_EntryPosition: {x: 40, y: 110, z: 0}
-  m_ExitPosition: {x: 940, y: 130, z: 0}
+  m_ExitPosition: {x: 250, y: 290, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -5126395919253194471}
 --- !u!91 &9100000
@@ -154,7 +154,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: -203655887218126122, guid: 69824d93f6bce4841b5056f66b89d0e9, type: 3}
-  m_Tag: 
+  m_Tag: Enemy
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -171,8 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 001c606e135dd6c47b54decd6bc81f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerScript: {fileID: 0}
-  gameManager: {fileID: 0}
+  controller: {fileID: 0}
   player: {fileID: 0}
   enemy: {fileID: 0}
 --- !u!1101 &8593327235351886967
