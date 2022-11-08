@@ -6,43 +6,52 @@ using UnityEngine;
 
 public class AttackScript : StateMachineBehaviour
 {
-    [SerializeField] Controller controller;
-    [SerializeField] Player player;
-    [SerializeField] Enemy enemy;
+    CharacterController characterController;
+    GameObject go;
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        controller = animator.GetComponentInParent<Controller>();
-        if (controller != null)
+        characterController = animator.gameObject.GetComponent<CharacterController>();
+        go = animator.gameObject;
+        if (characterController != null && go != null)
         {
-            player = animator.GetComponentInParent<Player>();
-            enemy = animator.GetComponentInParent<Enemy>();
-            if (player != null)
+            characterController.currentState = StaticScripts.strAttack;
+            characterController.isCanAttack = true;
+            if (go.tag == StaticScripts.strPlayer)
             {
-                controller.isAttack = true;
-                controller.currentState = StaticScripts.attack;
+                
             }
-            else if (enemy != null)
+            else if (go.tag == StaticScripts.strEnemy)
             {
-                controller.currentState = StaticScripts.attack;
+                
             }
-            else Debug.LogWarning("IsAnimMeleeAttack: OnStateEnter: player = null && enemy = null");
+            else if (go.tag == StaticScripts.strNeutralCreep)
+            {
+                
+            }
+            else Debug.LogWarning(go.tag);
         }
-        else Debug.LogWarning("IsAnimMeleeAttack: OnStateEnter: controllerScript = null");
+        else
+        {
+            Debug.LogWarning(go);
+            Debug.LogWarning(characterController);
+        }
     }
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (player != null)
+        characterController.currentState = StaticScripts.strIdle;
+        if (go.tag == StaticScripts.strPlayer)
         {
-            controller.isAttack = false;
-            controller.currentState = StaticScripts.idle;
-            controller.targetOfPlayer.GetComponent<Controller>().isAttack = true;
+            characterController.isCanAttack = false; // stop attack
+            characterController.target.GetComponent<CharacterController>().isCanAttack = true;
         }
-        else if (enemy != null)
+        else if (go.tag == StaticScripts.strEnemy)
         {
-            controller.currentState = StaticScripts.idle;
-            //enemy.stopAttack = true;
-            //enemy.currentState = TypeSript.idle;
+
         }
-        else Debug.LogWarning("IsAnimMeleeAttack: OnStateEnter: player = null && enemy = null");
+        else if (go.tag == StaticScripts.strNeutralCreep)
+        {
+
+        }
+        else Debug.LogWarning(go.tag);
     }
 }

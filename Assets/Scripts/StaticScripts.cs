@@ -1,38 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-public class StaticScripts : MonoBehaviour
+
+public class StaticScripts
 {
-    [Header("Type Animation")]
-    public static string idle = "Idle";
-    public static string attack = "Attack";
-    public static string walking = "Walking";
-    public static string death = "Death";
-    [Space]
-    [Header("Type Damage")]
-    public static string physicDamage = "Physic";
-    public static string magicDamage = "Magic";
+    //Tag
+    public static string strPlayer = "Player";
+    public static string strEnemy = "Enemy";
+    public static string strNeutralCreep = "NeutralCreep";
+    public static string strNPC = "NPC";
+    //[Header("Type Animation")]
+    public static string strIdle = "Idle";
+    public static string strAttack = "Attack";
+    public static string strWalking = "Walking";
+    public static string strDeath = "Death";
+    //
+    //[Header("Type Damage")]
+    public static string strPhysicDamage = "Physic";
+    public static string strMagicDamage = "Magic";
     // Damage Element
-    public static string lightDamage = "Light";
-    public static string coldDamage = "Cold";
-    public static string fireDamage = "Fire";
-    public static string poisonDamage = "Poison";
-    [Space]
-    [Header("Type Reduce Damage")]
+    public static string strLightDamage = "Light";
+    public static string strColdDamage = "Cold";
+    public static string strFireDamage = "Fire";
+    public static string strPoisonDamage = "Poison";
+    //
+    //[Header("Type Reduce Damage")]
     //Reduce
-    public static string reduceDamage = "Physic";
+    public static string strReduceDamage = "Physic";
     //Registance
-    public static string lightRegistance = "Light";
-    public static string coldRegistance = "Cold";
-    public static string fireRegistance = "Fire";
-    public static string poisonRegistance = "Poison";
-    [Space]
-    [Header("Chance")]
+    public static string strLightResistance = "Light";
+    public static string strColdResistance = "Cold";
+    public static string strFireResistance = "Fire";
+    public static string strPoisonResistance = "Poison";
+    //
+    //[Header("Chance")]
     public static int minChanceToHit = 5;
     public static int maxChanceToHit = 95;
     public static int maxChanceToBlock = 75;
-    [Space]
-    [Header("Registances")]
+    //
+    //[Header("Registances")]
     public static int maxFinalElementFireResistance = 95;
     public static int maxElementFireResistance = 75;
     public static int maxPhysicalResistance = 50;
