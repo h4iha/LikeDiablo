@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - NeutralCreep
   - NPC
+  - Weapon
+  - UnknowedItem
   layers:
   - Default
   - TransparentFX

@@ -12,9 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 001c606e135dd6c47b54decd6bc81f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
-  player: {fileID: 0}
-  enemy: {fileID: 0}
 --- !u!1101 &-3809345540802455702
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

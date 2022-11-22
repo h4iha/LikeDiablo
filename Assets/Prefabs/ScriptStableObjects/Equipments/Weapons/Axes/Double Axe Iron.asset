@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a5cf5ea614cbb4aa4d82c5be66bea0, type: 3}
+  m_Name: Double Axe Iron
+  m_EditorClassIdentifier: 
+  weaponName: Double Axe Iron
+  type: 0
+  isTwoHand: 0
+  isMeleeRange: 1
+  enum_DamageSource: 0
+  attackSpeed: 0
+  minDamage: 10
+  maxDamage: 15
+  minStrength: 10
+  maxStrength: 15
+  minDexterity: 10
+  maxDexterity: 15
+  durability: 0
+  maxSockets: 0
+  qualityLevel: 0
+  requirementLevel: 0

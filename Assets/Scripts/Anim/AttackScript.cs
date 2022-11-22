@@ -6,52 +6,47 @@ using UnityEngine;
 
 public class AttackScript : StateMachineBehaviour
 {
-    CharacterController characterController;
-    GameObject go;
+    PlayerController playerController;
+    EnemyController enemyController;
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        characterController = animator.gameObject.GetComponent<CharacterController>();
-        go = animator.gameObject;
-        if (characterController != null && go != null)
+        playerController = animator.gameObject.GetComponent<PlayerController>();
+        enemyController = animator.gameObject.GetComponent<EnemyController>();
+        if (playerController != null)
         {
-            characterController.currentState = StaticScripts.strAttack;
-            characterController.isCanAttack = true;
-            if (go.tag == StaticScripts.strPlayer)
-            {
-                
-            }
-            else if (go.tag == StaticScripts.strEnemy)
-            {
-                
-            }
-            else if (go.tag == StaticScripts.strNeutralCreep)
-            {
-                
-            }
-            else Debug.LogWarning(go.tag);
+            playerController.currentState = Enum_NameAnimationState.Attack.ToString();
+            playerController.isCanAttack = true;
+        }
+        else if (enemyController != null)
+        {
+            enemyController.currentState = Enum_NameAnimationState.Attack.ToString();
+            enemyController.isCanAttack = true;
         }
         else
         {
-            Debug.LogWarning(go);
-            Debug.LogWarning(characterController);
+            Debug.LogWarning(playerController);
+            Debug.LogWarning(enemyController);
         }
     }
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        characterController.currentState = StaticScripts.strIdle;
-        if (go.tag == StaticScripts.strPlayer)
+        if (playerController != null)
         {
-            characterController.isCanAttack = false; // stop attack
-            characterController.target.GetComponent<CharacterController>().isCanAttack = true;
+            playerController.currentState = Enum_NameAnimationState.Idle.ToString();
+            playerController.isCanAttack = false; // stop attack
+            if(playerController.target != null) playerController.target.isCanAttack = true;
         }
-        else if (go.tag == StaticScripts.strEnemy)
+        else if (enemyController != null)
         {
-
+            enemyController.currentState = Enum_NameAnimationState.Idle.ToString();
+            if (enemyController.target.gameObject.GetComponent<PlayerDetails>().current_Life <= 0)
+                enemyController.isCanAttack = false;
+            // enemyController.isCanAttack = false; // stop attack
         }
-        else if (go.tag == StaticScripts.strNeutralCreep)
+        else
         {
-
+            Debug.LogWarning(playerController);
+            Debug.LogWarning(enemyController);
         }
-        else Debug.LogWarning(go.tag);
     }
 }

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    private Transform target;
+    [SerializeField] Transform target;
+    [SerializeField] float y;
+    [SerializeField] float z;
     void Start()
     {
         target = GameObject.FindWithTag("Player").transform;
@@ -13,7 +15,7 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(target.position.x, target.position.y + 12, target.position.z + 5);
+        transform.position = new Vector3(target.position.x, target.position.y + y, target.position.z + z);
        //transform.rotation = Quaternion.LookRotation(target.position - transform.position, Vector3.up);
     }
 }

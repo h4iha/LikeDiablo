@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b437355cbc0a30544904856e9dc2f367, type: 3}
+  m_Name: Barbarian
+  m_EditorClassIdentifier: 
+  className: Barbarian
+  movementSpeed: 275
+  baseAttackTime: 2
+  life: 55
+  mana: 10
+  stamina: 92
+  strength: 30
+  dexteriry: 20
+  vitality: 25
+  energy: 10
+  lifePerPoint: 4
+  manaPerPoint: 1
+  staminaPerPoint: 1
+  lifeEachLevel: 2
+  manaEachLevel: 1
+  staminaEachLevel: 1
+  specificWeapon: 0
+  secondaryWeapons: 0200000005000000080000000e000000
