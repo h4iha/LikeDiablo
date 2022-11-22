@@ -41,10 +41,19 @@ public class PlayerController : MonoBehaviour
     //[SerializeField] public Skill_1 RightSkill;
     private void Awake()
     {
-        inventory = new Inventory();
+        inventory = new Inventory(HandleUseItem);
         Debug.Log(inventory);
         ui_Inventory.SetInventory(inventory);
         Debug.LogWarning(inventory.GetItemList().Count);
+    }
+
+    private void HandleUseItem(Item item)
+    {
+        Debug.Log(item.type);
+        if (item.type == ItemType.Potion)
+        {
+            playerDetails.current_Life += 5;
+        }
     }
     private void Start()
     {
@@ -123,7 +132,7 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, float.MaxValue))
             {
                 target = hit.transform.GetComponent<EnemyController>();
-                weaponTarget = hit.transform.GetComponent<WeaponScript>();
+                //weaponTarget = hit.transform.GetComponent<WeaponScript>();
                 if (target != null && weaponTarget == null)
                 {
                     isCanAttack = true;
@@ -131,16 +140,6 @@ public class PlayerController : MonoBehaviour
                     agent.stoppingDistance = (float) (playerDetails.final_AttackRange/100);
                     if (Vector3.Distance(transform.position, target.transform.position) >= agent.stoppingDistance)
                         ChangeAnimationState(Enum_NameAnimationState.Walking.ToString());
-                }
-                else if (target == null && weaponTarget != null)
-                {
-                    weaponTarget.gameObject.active = false;
-                    weaponTarget.GetComponent<Rigidbody>().useGravity = false;
-                    weaponTarget.transform.SetParent(inventoryPrefabs);
-                    weaponTarget.transform.position = inventoryPrefabs.transform.position;
-                    AddItemInInventory(weaponTarget.item);
-                    weaponTarget = null;
-
                 }
                 else
                 {
@@ -150,23 +149,6 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-    }
-    public void AddItemInInventory(Item item)
-    {
-        inventory.AddItem(item);
-        UpdateInventory();
-        Debug.Log(inventory.GetItemList().Count);
-    }
-    public void RemoveItemInInventory(Item item)
-    {
-        inventory.RemoveItem(item);
-        UpdateInventory();
-        Debug.Log(inventory.GetItemList().Count);
-    }
-    public void UpdateInventory()
-    {
-        ui_Inventory.SetInventory(inventory);
-        ui_Inventory.PrefabsInventory();
     }
     private void DoDeath()
     {

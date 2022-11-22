@@ -13,14 +13,8 @@ public class ItemAssets : MonoBehaviour
     public GameObject itemUIPrefab;
     public Sprite weaponSprite;
     public Sprite potionSprite;
-    void Start()
-    {
-        
-    }
-    void Update()
-    {
-        
-    }
+    public GameObject potionGo;
+    public GameObject weaponGo;
     public Sprite GetSprite(Item item)
     {
         switch (item.type)
@@ -31,6 +25,16 @@ public class ItemAssets : MonoBehaviour
                 return potionSprite;
         }
         return null;
-
+    }
+    public GameObject GetGameObject(Item item)
+    {
+        switch (item.type)
+        {
+            case ItemType.Weapon:
+                return weaponGo;
+            case ItemType.Potion:
+                return potionGo;
+        }
+        return null;
     }
 }

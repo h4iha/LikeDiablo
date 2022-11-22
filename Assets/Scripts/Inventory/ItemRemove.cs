@@ -21,7 +21,7 @@ public class ItemRemove : MonoBehaviour
     public void Remove()
     {
         Debug.Log("1");
-        playerController.RemoveItemInInventory(weapon.item);
+        //playerController.RemoveItemInInventory(weapon.item);
         weapon.transform.SetParent(unknowedItem);
         weapon.GetComponent<Rigidbody>().useGravity = true;
         weapon.gameObject.active = true;
