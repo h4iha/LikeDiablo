@@ -11,7 +11,7 @@ public class SAOMonsterStartingStat : ScriptableObject
     public int physicRes; // Reduces damage received from Physic sources
     public int magicRes; // Reduces damage received from Magic sources
     public int attackRange;
-    public float attackSpeed;
+    public int attackSpeed;
     public int attackRating;
     public int defense;
     public int exp; // Exp for player

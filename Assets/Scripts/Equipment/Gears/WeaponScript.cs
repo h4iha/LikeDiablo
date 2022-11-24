@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class WeaponScript : MonoBehaviour
+public class WeaponScript : MonoBehaviour,IPlayerTargeReachedHanele
 {
     public SAOEquipmentWeapon saoEquipmentWeapon;
     [Space]
@@ -20,13 +20,20 @@ public class WeaponScript : MonoBehaviour
     public int dexterity;
     public int amount;
     public ItemType type;
+
+    public void HandleReached(PlayerController controller)
+    {
+        Debug.Log("HandleReached");
+        controller.DoPickup(item);
+        DestroyThis();
+    }
+
     private void Start()
     {
         item = new Item();
+        item.type = type;
         item.amount = 1;
-        item.type = ItemType.Weapon;
         amount = item.amount;
-        type = item.type;
         this.name = saoEquipmentWeapon.name;
         isMeleeRange = saoEquipmentWeapon.isMeleeRange;
         isTwoHand = saoEquipmentWeapon.isTwoHand;
@@ -37,5 +44,9 @@ public class WeaponScript : MonoBehaviour
         maxDamage = saoEquipmentWeapon.maxDamage;
         strength = UnityEngine.Random.Range(saoEquipmentWeapon.minStrength, saoEquipmentWeapon.maxStrength + 1);
         strength = UnityEngine.Random.Range(saoEquipmentWeapon.minDexterity, saoEquipmentWeapon.maxDexterity + 1);
+    }
+    public void DestroyThis()
+    {
+        Destroy(gameObject);
     }
 }

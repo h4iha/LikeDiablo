@@ -4,34 +4,64 @@ using UnityEngine;
 
 public class MonsterDetail : MonoBehaviour
 {
-    [Header("Level")]
-    [SerializeField] public int current_Level;
+    [Header("Class")]
+    [SerializeField] private SAOMonsterStartingStat saoMonsterStartingStat;
+    [Header("Details")]
+    public int level;
+    public Enum_DamageSource damageSource;
     [Space]
-    [Header("Current Stat")]
-    [SerializeField] public int current_Life;
-    [SerializeField] public int current_AttackSpeed;
-    [SerializeField] public int current_AttackRange;
-    [SerializeField] public int current_MinDamage;
-    [SerializeField] public int current_MaxDamage;
-    [SerializeField] public int current_AttackRating;
-    [SerializeField] public int current_DefenseRating;
-    [SerializeField] public int current_MovementSpeed;
-    [SerializeField] public int current_Heal;
-    [SerializeField] public int current_DamageReduced;
-    [SerializeField] public int current_MagicResistance;
-    [SerializeField] public int curretn_ChanceToCrit;
+    [Header("Stats")]
     [Space]
-    [Header("Max Stat")]
-    [SerializeField] public int max_Life;
-    [SerializeField] public int max_AttackSpeed;
-    [SerializeField] public int max_AttackRange;
-    [SerializeField] public int max_MinDamage;
-    [SerializeField] public int max_MaxDamage;
-    [SerializeField] public int max_AttackRating;
-    [SerializeField] public int max_DefenseRating;
-    [SerializeField] public int max_MovementSpeed;
-    [SerializeField] public int max_Heal;
-    [SerializeField] public int max_DamageReduced;
-    [SerializeField] public int max_MagicResistance;
-    [SerializeField] public int max_ChanceToCrit;
+    [Header("Combat Stat")]
+    public int final_Life;
+    public int final_Heal;
+    public int final_MinDamage;
+    public int final_MaxDamage;
+    public int final_PhysicRes;
+    public int final_MagicRes;
+    public int final_AttackRating;
+    public int final_Defense;
+    public int final_AttackRange;
+    public int final_AttackSpeed; // time to hit
+    [Space]
+    [Header("Current ")]
+    public int currentLife;
+    public int current_Life
+    {
+        get { return currentLife; }
+        set
+        {
+            if (currentLife < 0) currentLife = 0;
+            if (currentLife > final_Life) currentLife = final_Life;
+        }
+    }
+    [Space]
+    [Header("Exp")]
+    public int final_exp;
+    private void Start()
+    {
+        if (saoMonsterStartingStat == null) Debug.LogWarning(saoMonsterStartingStat);
+        else
+        {
+            this.name = saoMonsterStartingStat.name;
+            damageSource = saoMonsterStartingStat.damageSource;
+            final_Life = UnityEngine.Random.Range(saoMonsterStartingStat.minLife, saoMonsterStartingStat.maxLife + 1);
+            final_Heal = saoMonsterStartingStat.heal;
+            final_MinDamage = saoMonsterStartingStat.minDamage;
+            final_MaxDamage = saoMonsterStartingStat.maxDamage;
+            final_PhysicRes = saoMonsterStartingStat.physicRes;
+            final_MagicRes = saoMonsterStartingStat.magicRes;
+            final_AttackRating = saoMonsterStartingStat.attackRating;
+            final_Defense = saoMonsterStartingStat.defense;
+            final_AttackRange = saoMonsterStartingStat.attackRange;
+            final_AttackSpeed = saoMonsterStartingStat.attackSpeed;
+            final_exp = saoMonsterStartingStat.exp;
+            // current
+            currentLife = final_Life;
+        }
+    }
+    private void Update()
+    {
+        current_Life = currentLife;
+    }
 }

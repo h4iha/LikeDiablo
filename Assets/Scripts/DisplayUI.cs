@@ -12,30 +12,30 @@ public enum Enum_UI
 public class DisplayUI : MonoBehaviour
 {
     [SerializeField] Enum_UI enumUI;
-    PlayerDetails playerDetails;
+    PlayerDetail detail;
     // Start is called before the first frame update
     void Start()
     {
-        playerDetails = GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerDetails>();
+        detail = GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerDetail>();
         if (enumUI == Enum_UI.Life)
         {
-            GetComponent<Image>().fillAmount = playerDetails.current_Life / (float)playerDetails.final_Life;
-            if (playerDetails.current_Life == playerDetails.final_Life)
+            GetComponent<Image>().fillAmount = detail.current_Life / (float)detail.final_Life;
+            if (detail.current_Life == detail.final_Life)
                 GetComponentInChildren<Text>().text = "";
             else
-                GetComponentInChildren<Text>().text = playerDetails.current_Life.ToString() + " / " + playerDetails.final_Life.ToString();
+                GetComponentInChildren<Text>().text = detail.current_Life.ToString() + " / " + detail.final_Life.ToString();
         }
         if (enumUI == Enum_UI.Mana)
         {
-            GetComponent<Image>().fillAmount = playerDetails.current_Mana / (float)playerDetails.final_Mana;
-            if (playerDetails.current_Mana == playerDetails.final_Mana)
+            GetComponent<Image>().fillAmount = detail.current_Mana / (float)detail.final_Mana;
+            if (detail.current_Mana == detail.final_Mana)
                 GetComponentInChildren<Text>().text = "";
             else
-                GetComponentInChildren<Text>().text = playerDetails.current_Mana.ToString() + " / " + playerDetails.final_Mana.ToString();
+                GetComponentInChildren<Text>().text = detail.current_Mana.ToString() + " / " + detail.final_Mana.ToString();
         }
         if (enumUI == Enum_UI.Exp)
         {
-            GetComponent<Image>().fillAmount = playerDetails.current_Exp / (float)playerDetails.required_Exp;
+            GetComponent<Image>().fillAmount = detail.current_Exp / (float)detail.required_Exp;
         }
     }
 
@@ -44,23 +44,23 @@ public class DisplayUI : MonoBehaviour
     {
         if (enumUI == Enum_UI.Life)
         {
-            GetComponent<Image>().fillAmount = playerDetails.current_Life / (float)playerDetails.final_Life;
-            if (playerDetails.current_Life == playerDetails.final_Life)
+            GetComponent<Image>().fillAmount = detail.current_Life / (float)detail.final_Life;
+            if (detail.current_Life == detail.final_Life)
                 GetComponentInChildren<Text>().text = "";
             else
-                GetComponentInChildren<Text>().text = playerDetails.current_Life.ToString() + " / " + playerDetails.final_Life.ToString();
+                GetComponentInChildren<Text>().text = detail.current_Life.ToString() + " / " + detail.final_Life.ToString();
         }
         if (enumUI == Enum_UI.Mana)
         {
-            GetComponent<Image>().fillAmount = playerDetails.current_Mana / (float)playerDetails.final_Mana;
-            if (playerDetails.current_Mana == playerDetails.final_Mana)
+            GetComponent<Image>().fillAmount = detail.current_Mana / (float)detail.final_Mana;
+            if (detail.current_Mana == detail.final_Mana)
                 GetComponentInChildren<Text>().text = "";
             else
-                GetComponentInChildren<Text>().text = playerDetails.current_Mana.ToString() + " / " + playerDetails.final_Mana.ToString();
+                GetComponentInChildren<Text>().text = detail.current_Mana.ToString() + " / " + detail.final_Mana.ToString();
         }
         if (enumUI == Enum_UI.Exp)
         {
-            GetComponent<Image>().fillAmount = playerDetails.current_Exp / (float)playerDetails.required_Exp;
+            GetComponent<Image>().fillAmount = detail.current_Exp / (float)detail.required_Exp;
         }
     }
 }

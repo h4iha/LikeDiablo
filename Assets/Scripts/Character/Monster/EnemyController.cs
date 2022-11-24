@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour,IPlayerTargeReachedHanele
 {
     [Header("Check Character")]
     [SerializeField] public EnemyDetails enemyDetails;
@@ -149,5 +149,11 @@ public class EnemyController : MonoBehaviour
         currentState = newState;
         if (currentState == null) Debug.LogWarning("currentState = null");
         if (newState == null) Debug.LogWarning("newState = null");
+    }
+
+    public void HandleReached(PlayerController controller)
+    {
+        Debug.Log("HandleReached");
+        controller.DoAttack();
     }
 }

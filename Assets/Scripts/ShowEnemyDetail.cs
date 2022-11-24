@@ -19,14 +19,15 @@ public class ShowEnemyDetail : MonoBehaviour
     {
         if (playerController != null)
         {
-            if (playerController.target != null)
-            {
-                SetActiveAllChilds(true);
-                //name
-                transform.GetChild(3).gameObject.GetComponent<Text>().text = playerController.target.name;
-                //life current
-                transform.GetChild(2).gameObject.GetComponent<Image>().fillAmount = playerController.target.gameObject.GetComponent<EnemyDetails>().current_Life / (float) playerController.target.gameObject.GetComponent<EnemyDetails>().final_Life;
-            }
+            //TODO : bi xoa target
+            //if (playerController.target != null)
+            //{
+            //    SetActiveAllChilds(true);
+            //    //name
+            //    transform.GetChild(3).gameObject.GetComponent<Text>().text = playerController.target.name;
+            //    //life current
+            //    transform.GetChild(2).gameObject.GetComponent<Image>().fillAmount = playerController.target.gameObject.GetComponent<EnemyDetails>().current_Life / (float) playerController.target.gameObject.GetComponent<EnemyDetails>().final_Life;
+            //}
         }
         else SetActiveAllChilds(false);
     }

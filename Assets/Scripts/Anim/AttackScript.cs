@@ -34,12 +34,13 @@ public class AttackScript : StateMachineBehaviour
         {
             playerController.currentState = Enum_NameAnimationState.Idle.ToString();
             playerController.isCanAttack = false; // stop attack
-            if(playerController.target != null) playerController.target.isCanAttack = true;
+            //TODO: bi xoa target
+           /// if(playerController.target != null) playerController.target.isCanAttack = true;
         }
         else if (enemyController != null)
         {
             enemyController.currentState = Enum_NameAnimationState.Idle.ToString();
-            if (enemyController.target.gameObject.GetComponent<PlayerDetails>().current_Life <= 0)
+            if (enemyController.target.gameObject.GetComponent<PlayerDetail>().current_Life <= 0)
                 enemyController.isCanAttack = false;
             // enemyController.isCanAttack = false; // stop attack
         }
