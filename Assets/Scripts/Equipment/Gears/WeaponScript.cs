@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 public class WeaponScript : MonoBehaviour,IPlayerTargeReachedHanele
 {
@@ -23,7 +21,6 @@ public class WeaponScript : MonoBehaviour,IPlayerTargeReachedHanele
 
     public void HandleReached(PlayerController controller)
     {
-        Debug.Log("HandleReached");
         controller.DoPickup(item);
         DestroyThis();
     }

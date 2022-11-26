@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UI_Inventory : MonoBehaviour
 {
@@ -11,7 +8,6 @@ public class UI_Inventory : MonoBehaviour
     [SerializeField] Player player;
     private void Start()
     {
-        
         itemUIPrefab = ItemAssets.Instance.itemUIPrefab;
         RefreshInventory();
     }
@@ -32,14 +28,16 @@ public class UI_Inventory : MonoBehaviour
                 inventory.PickUpItem(item);
                 icon_Prefab.SetTextAndIcon(item);
             };
-            icon_Prefab.onItemDrop = () => {
+            icon_Prefab.onItemDrop = () =>
+            {
                 Vector3 position = player.transform.position + Vector3.up * 3 + Vector3.forward * 2;
                 Debug.Log(ItemWorldSpawner.Instance);
                 inventory.DropItem(item, 1);
                 icon_Prefab.SetTextAndIcon(item);
                 ItemWorldSpawner.Instance.Spawn(position, item);
             };
-            icon_Prefab.onItemUsed = () => {
+            icon_Prefab.onItemUsed = () =>
+            {
                 //
                 if (item.type == ItemType.Potion) inventory.UseItem(item);
             };
@@ -49,6 +47,6 @@ public class UI_Inventory : MonoBehaviour
     {
         this.inventory = inventory;
         inventory.onInventoryUpdated = RefreshInventory;
-        
+
     }
 }

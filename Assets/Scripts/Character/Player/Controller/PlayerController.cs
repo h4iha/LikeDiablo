@@ -1,9 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEngine.GraphicsBuffer;
 
 
 public interface IPlayerTargeReachedHanele
@@ -38,7 +35,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] MeshCollider meshCollider;
     [Space]
     [Header("Damage Interactive")]
-    [SerializeField] bool isSendDamage;
     [SerializeField] int damageInflicted;
     [SerializeField] public bool isApplyDamage;
     [SerializeField] public int damageTaken;
@@ -83,7 +79,7 @@ public class PlayerController : MonoBehaviour
             asi = animator.GetCurrentAnimatorStateInfo(0);
             if (asi.normalizedTime == 2 / 3)
             {
-                isSendDamage = true;
+                //isSendDamage = true;
             }
         }
     }

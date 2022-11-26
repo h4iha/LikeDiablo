@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -19,10 +16,8 @@ public class Player : MonoBehaviour
         GiveComponentWhenStart();
         controller.onItemPickup = HandleItemPickup;
         inventory = new Inventory(HandleUseItem);
-        Debug.Log(inventory);
 
         ui_Inventory.SetInventory(inventory);
-        Debug.LogWarning(inventory.GetItemList().Count);
     }
 
     private void HandleItemPickup(Item obj)
